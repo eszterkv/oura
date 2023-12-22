@@ -1,0 +1,22 @@
+---
+import { human } from '../utils/date'
+
+const data = Astro.props
+
+const keys = [
+  'score',
+  'active_calories',
+]
+---
+
+<li class="text-sm">
+  <time>{human(data.timestamp)}</time>
+  <dl>
+    {keys.map(key => (
+      <div>
+        <dt>{key}</dt>
+        <dd>{data[key]}</dd>
+      </div>
+    ))}
+  </dl>
+</li>
